@@ -19,6 +19,9 @@ Line #      Description
 152         Decrypt message function
 198         Main function
 '''
+
+
+
 #!/usr/bin/env python3
 import os
 from os import system, name
@@ -30,8 +33,8 @@ COLORS = {"cyan": '\033[1;36;48m', "green": '\033[1;32;48m', "red": '\033[1;31;4
 # ALl characters, you can add more as needed.
 ALPHA = ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "+", "=", "[", "]", "{", "}", "\\", "|", ";", ":", "\"", "\'", "<", ">", ",", ".", "?", "/", "`", "£", "¥", " ")
 
-grid_height = range(-1, 2)
-grid_width = range(-1, 2)
+grid_height = range(-1, 6)
+grid_width = range(-1, 6)
 
 def clear():
     os.system('cls||clear')
@@ -86,22 +89,23 @@ def read_contents(line_length, method):
 
 # Print final output of encryption
 def print_final(matrix, void_spaces, offset, alpha_shuffled):
-
-    # Print the encrypted message
     encrypted_message = merge_string(matrix)
 
-    print(f"{COLORS['green']}SECRET KEYS{COLORS['end']}")
-    print(f"{COLORS['red']}Save the following information in a safe place.{COLORS['end']}")
-    print("------------")
-    print(f"ALPHA KEY:\n{merge_string(alpha_shuffled)}")
-    print("------------")
-    print(f"INDEX OFFSET:  {offset}")
-    print(f"LINE LENGTH:   {len(matrix[0])}")
-    print(f"VOID SPACES:   {void_spaces}")
-    print(f"GRID HEIGHT:   {grid_height}")
-    print(f"GRID WIDTH:    {grid_width}\n")
-    print(f"{COLORS['cyan']}Your encrypted message:{COLORS['end']}")
-    print(encrypted_message)
+    # Allowing me to use 1 print statement instead of 10+ of them...(Looks a bit messy but it looks the same in the terminal/cmd window.)
+    print(f"""{COLORS['green']}SECRET KEYS{COLORS['end']}
+{COLORS['red']}Save the following information in a safe place.{COLORS['end']}
+------------
+ALPHA KEY:
+{merge_string(alpha_shuffled)}
+------------
+INDEX OFFSET:  {offset}
+LINE LENGTH:   {len(matrix[0])}
+VOID SPACES:   {void_spaces}
+GRID HEIGHT:   {grid_height}
+GRID WIDTH:    {grid_width}\n
+{COLORS['cyan']}Your encrypted message:{COLORS['end']}
+{encrypted_message}
+    """)
 
 
 # Encrypt the given message in the matrix list
@@ -219,6 +223,8 @@ def main():
             clear()
             about_gridencryption()
         elif option == 4:
+            clear()
+            print(f"{COLORS['green']}Goodbye!{COLORS['end']}")
             break
         else:
             pass
