@@ -91,7 +91,7 @@ def read_contents(line_length, method):
 def print_final(matrix, void_spaces, offset, alpha_shuffled):
     encrypted_message = merge_string(matrix)
 
-    # Allowing me to use 1 print statement instead of 10+ of them...(Looks a bit messy but it looks the same in the terminal/cmd window.)
+    # Allows me to use 1 print statement instead of 10+ of them...(Looks a bit messy but it looks the same in the terminal/cmd window.)
     print(f"""{COLORS['green']}SECRET KEYS{COLORS['end']}
 {COLORS['red']}Save the following information in a safe place.{COLORS['end']}
 ------------
